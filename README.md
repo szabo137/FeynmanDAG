@@ -10,7 +10,6 @@
 [![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 [![Gitter][gitter-badge]][gitter-link]
 
-
 <!-- prettier-ignore-start -->
 [actions-badge]:            https://gitlab.hzdr.de/hernan68/feynmandag/workflows/CI/badge.svg
 [actions-link]:             https://gitlab.hzdr.de/hernan68/feynmandag/actions
