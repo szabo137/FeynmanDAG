@@ -62,12 +62,12 @@ class Interactions:
         Returns the number of particles that arises after the interaction.
         
         Returns
-        ----------
+        -------
         int
             Number of particles that arises from the interaction: 0 or 1.
         
         Raises
-        ----------
+        ------
         ArgumentError
             If the number of particles that interact is different from 2 or 3.
         
