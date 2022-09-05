@@ -5,8 +5,7 @@ Currently, only the ABC interaction is supported.
 
 from __future__ import annotations
 
-from .particles import ParticleA, ParticleB, ParticleC
-
+from .particles import ParticleA, ParticleB, ParticleC, ParticleA_state, ParticleB_state, ParticleC_state 
 __all__ = ["Interactions", "Interactions_FD", "Interactions_state"]
 
 class Interactions:
