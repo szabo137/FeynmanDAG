@@ -13,13 +13,6 @@ from .helper import _alias_attribute
 from .Lorentz import _LorentzVectorType
 from .utils import _validate_mass
 
-HEP_VECTOR_TYPE = Union[
-    vector._backends.numpy_.VectorNumpy4D,
-    vector._backends.numpy_.MomentumNumpy4D,
-    # vector._backends.awkward_.VectorArray4D,
-    # vector._backends.awkward_.MomentumArray4D,
-]
-
 
 __all__ = ["FourMomentum"]
 
@@ -87,14 +80,6 @@ def _from_LorentzVector(
     return _FourMomentumType(mom.x0, mom.x1, mom.x2, mom.x3, mass)
 
 
-def _from_hepVector(
-    hepvec: HEP_VECTOR_TYPE, mass: float | None
-) -> _FourMomentumType:
-    """
-    Low-level constructor for :class:`_FourMomentumType` from a ``HepVector``.
-    """
-    return _FourMomentumType(hepvec.t, hepvec.x, hepvec.y, hepvec.z, mass)
-
 
 def _from_ndarray(arr: np.ndarray, mass: float | None) -> _FourMomentumType:
     """
@@ -117,12 +102,6 @@ def _from_tuple(tpl: tuple, mass: float | None) -> _FourMomentumType:
 AVIAL_CONSTRUCTORS = {
     "_LorentzVectorType": _from_LorentzVector,
     "_FourMomentumType": _from_LorentzVector,
-    "VectorNumpy4D": _from_hepVector,
-    "VectorArray4D": _from_hepVector,
-    "VectorObject4D": _from_hepVector,
-    "MomentumNumpy4D": _from_hepVector,
-    "MomentumArray4D": _from_hepVector,
-    "MomentumObject4D": _from_hepVector,
     "ndarray": _from_ndarray,
 }
 
