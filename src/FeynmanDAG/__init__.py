@@ -29,4 +29,10 @@ from .diagrams import *  # noqa
 
 __all__ += diagrams.__all__
 
+
+from . import algorithm  # noqa
+from .algorithm import *  # noqa
+
+__all__ += algorithm.__all__
+
 from . import kinematics  # noqa
