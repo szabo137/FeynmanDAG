@@ -6,6 +6,12 @@
 
 from __future__ import annotations
 
+
+from typing import List
+
+from pkg_resources import get_distribution
+
+
 # Warning: do not change the path here. To use autodoc, you need to install the
 # package first.
 
@@ -16,6 +22,8 @@ copyright = "2022, Uwe Hernandez Acosta"
 author = "Uwe Hernandez Acosta"
 
 
+version = get_distribution(project).version
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -24,13 +32,43 @@ author = "Uwe Hernandez Acosta"
 extensions = [
     "myst_parser",
     "sphinx.ext.autodoc",
+    "numpydoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
     "sphinx_copybutton",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.autosectionlabel",
+    "sphinxcontrib.bibtex",
+    "nbsphinx"
 ]
+
+# Intersphinx configuration
+intersphinx_mapping = {
+    "neps": ("https://numpy.org/neps", None),
+    "python": ("https://docs.python.org/dev", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
+    "matplotlib": ("https://matplotlib.org/stable", None),
+    "pytest": ("https://docs.pytest.org/en/stable", None),
+}
+
+# bibtex config
+bibtex_bibfiles = ["bibliography.bib"]
+
+# configure numpydoc
+
+numpydoc_show_class_members = False
+
+# Display todos by setting to True
+todo_include_todos = True
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = []
+
+
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -38,24 +76,44 @@ templates_path = []
 exclude_patterns = ["_build", "**.ipynb_checkpoints", "Thumbs.db", ".DS_Store", ".env"]
 
 
+# The reST default role (used for this markup: `text`) to use for all documents.
+default_role = "autolink"
+
+
+# Make sure label sections are unique
+autosectionlabel_prefix_document = True
+
+# Math configurations
+math_eqref_format = 'Eq. ({number})'
+
+
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_book_theme"
+#html_theme = "sphinx_book_theme"
+html_theme = "pydata_sphinx_theme"
 
-html_title = f"{project}"
+html_title = f"FeynmanDAG {version[0:3]}"
 
 html_baseurl = "https://FeynmanDAG.readthedocs.io/en/latest/"
 
-html_theme_options = {
-    "home_page_in_toc": True,
-    "repository_url": "https://gitlab.hzdr.de/hernan68/feynmandag",
-    "use_repository_button": True,
-    "use_issues_button": True,
-    "use_edit_page_button": True,
-}
+#html_theme_options = {
+#    "home_page_in_toc": True,
+#    "repository_url": "https://gitlab.hzdr.de/hernan68/feynmandag",
+#    "use_repository_button": True,
+#    "use_issues_button": True,
+#    "use_edit_page_button": True,
+#}
+
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path: List[str] = []
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

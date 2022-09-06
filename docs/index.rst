@@ -1,24 +1,26 @@
+###########################
+``FeymanDAG`` Documentation
+###########################
 
-Welcome to documentation!
-=========================
+Welcome!
+This is the documentation for ``FeynmanDAG`` |version|, last updated on |today|.
 
+What is ``FeynmanDAG``?
+#######################
 
-Introduction
-------------
+Here we need to add a short description of the package.
 
-This should be updated!
+Full table of contents
+######################
 
 .. toctree::
-   :maxdepth: 2
-   :titlesonly:
-   :caption: Contents
-   :glob:
+   :maxdepth: 3
+
+   API Reference <api/index>
+   Contributors <contributors/index>
 
 
+References
+##########
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. footbibliography::
