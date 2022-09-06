@@ -7,7 +7,6 @@ from typing import Any, Optional, Union
 
 import attr
 import numpy as np
-import vector  # type: ignore
 
 from .helper import _alias_attribute
 from .Lorentz import _LorentzVectorType
